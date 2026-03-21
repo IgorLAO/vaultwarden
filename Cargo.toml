@@ -2,7 +2,7 @@
 edition = "2021"
 rust-version = "1.92.0"
 license = "AGPL-3.0-only"
-repository = "https://github.com/dani-garcia/vaultwarden"
+repository = "https://github.com/IgorLAO/vaultwarden.git"
 publish = false
 
 [workspace]
@@ -11,7 +11,7 @@ members = ["macros"]
 [package]
 name = "vaultwarden"
 version = "1.0.0"
-authors = ["Daniel García <dani-garcia@users.noreply.github.com>"]
+authors = ["Igor Alves <archive@igoralves.dev.br>"]
 readme = "README.md"
 build = "build.rs"
 resolver = "2"
