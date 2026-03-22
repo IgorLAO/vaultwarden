@@ -24,7 +24,7 @@ use crate::{
     auth::{generate_organization_api_key_login_claims, AuthMethod, ClientHeaders, ClientIp, ClientVersion},
     db::{
         models::{
-            AuthRequest, AuthRequestId, Device, DeviceId, EventType, Invitation, OIDCCodeWrapper, OrganizationApiKey,
+            AuthRequest, AuthRequestId, Device, DeviceId, EventType, OIDCCodeWrapper, OrganizationApiKey,
             OrganizationId, SsoAuth, SsoUser, TwoFactor, TwoFactorIncomplete, TwoFactorType, User, UserId,
         },
         DbConn,
