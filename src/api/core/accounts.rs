@@ -1307,6 +1307,10 @@ async fn get_known_device(device: KnownDevice, conn: DbConn) -> JsonResult {
     } else {
         false
     };
+    
+    if !result{
+        Device::log_unknown_device(&device.uuid, device.email);
+    }
     Ok(Json(json!(result)))
 }
 

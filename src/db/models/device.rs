@@ -180,6 +180,11 @@ impl Device {
         }}
     }
 
+    pub fn log_unknown_device(uuid: &DeviceId, email: String){
+        println!("Unknown device → DeviceId: {}, email: {:?}", uuid, email);
+
+    }
+
     pub async fn find_with_auth_request_by_user(user_uuid: &UserId, conn: &DbConn) -> Vec<DeviceWithAuthRequest> {
         let devices = Self::find_by_user(user_uuid, conn).await;
         let mut result = Vec::new();

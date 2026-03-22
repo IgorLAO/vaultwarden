@@ -9,6 +9,8 @@ services:
       DOMAIN: "https://vault.igoralves.dev.br"
       WEBSOCKET_ENABLED: "true"
       SIGNUPS_ALLOWED: "false"
+      LOGIN_RATELIMIT_MAX_BURST: 3
+      LOGIN_RATELIMIT_SECONDS: 1000
     volumes:
       - vaultwarden_data:/data
     ports:
