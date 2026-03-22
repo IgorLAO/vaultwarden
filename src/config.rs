@@ -1570,22 +1570,24 @@ impl Config {
     /// Tests whether signup is allowed for an email address, taking into
     /// account the signups_allowed and signups_domains_whitelist settings.
     pub fn is_signup_allowed(&self, email: &str) -> bool {
-        if !self.signups_domains_whitelist().is_empty() {
-            // The whitelist setting overrides the signups_allowed setting.
-            self.is_email_domain_allowed(email)
-        } else {
-            self.signups_allowed()
-        }
+   //     if !self.signups_domains_whitelist().is_empty() {
+           // The whitelist setting overrides the signups_allowed setting.
+    //        self.is_email_domain_allowed(email)
+     //   } else {
+      //      self.signups_allowed()
+       // }
+       false
     }
 
     // The registration link should be hidden if
     //  - Signup is not allowed and email whitelist is empty unless mail is disabled and invitations are allowed
     //  - The SSO is activated and password login is disabled.
     pub fn is_signup_disabled(&self) -> bool {
-        (!self.signups_allowed()
-            && self.signups_domains_whitelist().is_empty()
-            && (self.mail_enabled() || !self.invitations_allowed()))
-            || (self.sso_enabled() && self.sso_only())
+        //(!self.signups_allowed()
+            // && self.signups_domains_whitelist().is_empty()
+            //&& (self.mail_enabled() || !self.invitations_allowed()))
+            //|| (self.sso_enabled() && self.sso_only())
+        true
     }
 
     /// Tests whether the specified user is allowed to create an organization.
