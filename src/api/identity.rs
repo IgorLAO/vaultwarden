@@ -975,7 +975,7 @@ async fn register_verification_email(
     let data = data.into_inner();
 
     // the registration can only continue if signup is allowed or there exists an invitation
-    if true
+    if true{
         err!("Registration not allowed.")
     }
 
@@ -1005,6 +1005,7 @@ async fn register_verification_email(
         Ok(RegisterVerificationResponse::Token(Json(token)))
     }
 
+}
 
 #[post("/accounts/register/finish", data = "<data>")]
 async fn register_finish(data: Json<RegisterData>, conn: DbConn) -> JsonResult {
