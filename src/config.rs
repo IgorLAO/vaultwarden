@@ -1569,7 +1569,7 @@ impl Config {
 
     /// Tests whether signup is allowed for an email address, taking into
     /// account the signups_allowed and signups_domains_whitelist settings.
-    pub fn is_signup_allowed(&self, email: &str) -> bool {
+    pub fn is_signup_allowed(&self) -> bool {
    //     if !self.signups_domains_whitelist().is_empty() {
            // The whitelist setting overrides the signups_allowed setting.
     //        self.is_email_domain_allowed(email)
