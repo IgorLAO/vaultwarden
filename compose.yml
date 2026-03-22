@@ -11,7 +11,7 @@ services:
     volumes:
       - vaultwarden_data:/data
     ports:
-      - "8000:80"
+      - "8001:80"
 
 volumes:
   vaultwarden_data:
