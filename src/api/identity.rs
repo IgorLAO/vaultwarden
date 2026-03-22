@@ -992,7 +992,7 @@ async fn register_verification_email(
             // Add a randomized sleep to mitigate this somewhat.
             use rand::{rngs::SmallRng, RngExt};
             let mut rng: SmallRng = rand::make_rng();
-            let sleep_ms = rng.random_range(900..=1100) as u64;
+            let sleep_ms = rng.random_range(900..=1100);
             tokio::time::sleep(tokio::time::Duration::from_millis(sleep_ms)).await;
         } else {
             mail::send_register_verify_email(&data.email, &token).await?;
@@ -1004,7 +1004,7 @@ async fn register_verification_email(
         // the clients will use this token to finish the registration
         Ok(RegisterVerificationResponse::Token(Json(token)))
     }
-}
+
 
 #[post("/accounts/register/finish", data = "<data>")]
 async fn register_finish(data: Json<RegisterData>, conn: DbConn) -> JsonResult {

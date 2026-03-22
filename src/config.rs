@@ -1576,7 +1576,7 @@ impl Config {
      //   } else {
       //      self.signups_allowed()
        // }
-       false
+    //   false
     //}
 
     // The registration link should be hidden if
