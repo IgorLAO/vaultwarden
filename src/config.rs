@@ -1569,7 +1569,7 @@ impl Config {
 
     /// Tests whether signup is allowed for an email address, taking into
     /// account the signups_allowed and signups_domains_whitelist settings.
-    pub fn is_signup_allowed(&self) -> bool {
+   // pub fn is_signup_allowed(&self) -> bool {
    //     if !self.signups_domains_whitelist().is_empty() {
            // The whitelist setting overrides the signups_allowed setting.
     //        self.is_email_domain_allowed(email)
@@ -1577,7 +1577,7 @@ impl Config {
       //      self.signups_allowed()
        // }
        false
-    }
+    //}
 
     // The registration link should be hidden if
     //  - Signup is not allowed and email whitelist is empty unless mail is disabled and invitations are allowed

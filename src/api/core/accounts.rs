@@ -267,12 +267,7 @@ pub async fn _register(data: Json<RegisterData>, email_verification: bool, conn:
             } else if Invitation::take(&email, &conn).await {
                 Membership::accept_user_invitations(&user.uuid, &conn).await?;
                 user
-            } else if CONFIG.is_signup_allowed(&email)
-                || (CONFIG.emergency_access_allowed()
-                    && EmergencyAccess::find_invited_by_grantee_email(&email, &conn).await.is_some())
-            {
-                user
-            } else {
+            }  else {
                 err!("Registration not allowed or user already exists")
             }
         }
@@ -280,13 +275,11 @@ pub async fn _register(data: Json<RegisterData>, email_verification: bool, conn:
             // Order is important here; the invitation check must come first
             // because the vaultwarden admin can invite anyone, regardless
             // of other signup restrictions.
-            if Invitation::take(&email, &conn).await
-                || CONFIG.is_signup_allowed(&email)
-                || pending_emergency_access.is_some()
+            if Invitation::take(&email, &conn).await || pending_emergency_access.is_some()
             {
                 User::new(&email, None)
             } else {
-                err!("Registration not allowed or user already exists")
+                err!("Registration not allowed")
             }
         }
     };
